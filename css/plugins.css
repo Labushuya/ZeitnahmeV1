@@ -1,0 +1,707 @@
+	/*
+	Author:		Christopher Bott
+	Project:	Timelegance
+	*/
+
+	/* Horizontal Line */
+	hr {
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(160, 154, 142, 1.00), rgba(142, 101, 22, 1.00), rgba(160, 154, 142, 1.00));
+	}
+
+	.white-hr {
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(160, 154, 142, 1.00), rgba(255, 255, 255, 1.00), rgba(160, 154, 142, 1.00));
+	}
+
+	.normal-hr {
+		border: 1px solid #fff;
+	}
+
+	/* Togglebox */
+	.hidden {
+		display: none;
+	}
+
+	/* Image Radiobutton */
+	label > input[type="radio"] {
+		visibility: hidden;
+		position: absolute;
+	}
+	label > input[type="radio"] + img {
+		cursor: pointer;
+		border: 1px solid transparent;
+		padding: 5px;
+	}
+	label > input[type="radio"]:checked + img {
+		border: 1px solid #FFFFF0;
+		padding: 5px;
+	}
+
+	/* Upload Hint */
+	#hint {
+		font-size: small;
+	}
+
+	/* Tooltip */
+	/* Tooltip container */
+
+	/*
+	TYPES
+	TOP:
+	.tooltip .tooltiptext {
+		width: 120px;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -60px;
+	}
+
+	.tooltip .tooltiptext::after {
+		content: " ";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent black transparent;
+	}
+
+	====================================================================
+
+	BOTTOM:
+	.tooltip .tooltiptext {
+		width: 120px;
+		top: 100%;
+		left: 50%;
+		margin-left: -60px;
+	}
+
+	.tooltip .tooltiptext::after {
+		content: " ";
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: black transparent transparent transparent;
+	}
+
+	====================================================================
+
+	LEFT:
+	.tooltip .tooltiptext {
+		top: -5px;
+		right: 105%;
+	}
+
+	.tooltip .tooltiptext::after {
+		content: " ";
+		position: absolute;
+		top: 50%;
+		right: 100%;
+		margin-top: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent black transparent transparent;
+	}
+
+	====================================================================
+
+	RIGHT:
+	.tooltip .tooltiptext {
+		top: -5px;
+		left: 105%;
+	}
+
+	.tooltip .tooltiptext::after {
+		content: " ";
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		margin-top: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent transparent black;
+	}
+	*/
+
+	.tooltip {
+		position: relative;
+		display: inline-block;
+		border-bottom: 1px dotted #C0C0C0; /* If you want dots under the hoverable text */
+	}
+
+	/* Tooltip text */
+	.tooltip .tooltiptext {
+		visibility: hidden;
+		width: 200px;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -100px; /* Use half of the width (150/2 = 75), to center the tooltip */
+		background-color: #C0C0C0;
+		color: #8E6516;
+		text-align: justify;
+		padding: 5px;
+		border-radius: 6px;
+		border: 1px solid #8E6516;
+
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		z-index: 1;
+
+		/* Fade in Tooltip */
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	/* Show the tooltip text when you mouse over the tooltip container */
+	.tooltip:hover .tooltiptext {
+		visibility: visible;
+		opacity: 1;
+		margin-bottom: 5px;
+	}
+
+	.tooltip .tooltiptext::after {
+		content: " ";
+		position: absolute;
+		top: 100%; /* At the bottom of the tooltip */
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: #C0C0C0 transparent transparent transparent;
+	}
+
+	/* Tooltip container */
+	.tooltip_short {
+		position: relative;
+		display: inline-block;
+	}
+
+	.tooltip_short .tooltiptext_short {
+		visibility: hidden;
+		width: 50px;
+		top: -5px;
+		right: 105%;
+		margin-left: -25px; /* Use half of the width (150/2 = 75), to center the tooltip */
+		background-color: #A09A8E;
+		color: #FFF;
+		text-align: justify;
+		padding: 5px;
+		border-radius: 6px;
+		border: 1px solid #C0C0C0;
+
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		z-index: 1;
+
+		/* Fade in Tooltip */
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	/* Show the tooltip text when you mouse over the tooltip container */
+	.tooltip_short:hover .tooltiptext_short {
+		visibility: visible;
+		opacity: 1;
+		margin-bottom: 5px;
+	}
+
+	.tooltip_short .tooltiptext_short::after {
+		content: " ";
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		margin-top: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent transparent #C0C0C0;
+	}
+
+	/* Tooltip container */
+	.tooltip_export {
+		position: relative;
+		display: inline-block;
+	}
+
+	.tooltip_export .tooltiptext_export {
+		visibility: hidden;
+		width: 250px;
+		top: -3px;
+		right: 120%;
+		margin-left: -75px; /* Use half of the width (150/2 = 75), to center the tooltip */
+		background-color: #fff;
+		color: #8E6516;
+		padding: 5px;
+		border-radius: 6px;
+		border: 1px solid #8E6516;
+
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		z-index: 1;
+
+		/* Fade in Tooltip */
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	/* Show the tooltip text when you mouse over the tooltip container */
+	.tooltip_export:hover .tooltiptext_export {
+		visibility: visible;
+		opacity: 1;
+		margin-bottom: 5px;
+	}
+
+	.tooltip_export .tooltiptext_export::after {
+		content: " ";
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		margin-top: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent transparent #8E6516;
+	}
+
+	.tooltip_table_def {
+		position: relative;
+		display: inline-block;
+	}
+
+	.tooltip_table_def .tooltiptext_table_def {
+		visibility: hidden;
+		width: 150px;
+		background-color: #fff;
+		color: #8E6516;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+		position: absolute;
+		z-index: 1;
+		top: 150%;
+		left: 50%;
+		margin-left: -75px;
+
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	.tooltip_table_def .tooltiptext_table_def::after {
+		content: "";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent #8E6516 transparent;
+	}
+
+	.tooltip_table_def:hover .tooltiptext_table_def {
+		visibility: visible;
+
+		opacity: 1;
+	}
+
+	/* Tooltip container */
+	.tooltip_neutralize {
+		position: relative;
+		display: inline-block;
+		border-bottom: 1px dotted #FF0000; /* If you want dots under the hoverable text */
+	}
+
+	.tooltip_neutralize .tooltiptext_neutralize {
+		visibility: hidden;
+		width: 250px;
+		top: -3px;
+		right: 120%;
+		margin-left: -125px; /* Use half of the width (150/2 = 75), to center the tooltip */
+		background-color: #fff;
+		color: #8E6516;
+		padding: 5px;
+		border-radius: 0;
+		border: 1px solid #8E6516;
+
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		z-index: 1;
+
+		/* Fade in Tooltip */
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	/* Show the tooltip text when you mouse over the tooltip container */
+	.tooltip_neutralize:hover .tooltiptext_neutralize {
+		visibility: visible;
+		opacity: 1;
+		margin-bottom: 5px;
+		margin-right: 5px;
+	}
+
+	.tooltip_neutralize .tooltiptext_neutralize::after {
+		content: " ";
+		position: absolute;
+		top: 10%;
+		left: 100%;
+		margin-top: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent transparent #8E6516;
+	}
+
+	/* Tooltip container */
+	.tooltip_secret {
+		position: relative;
+		display: inline-block;
+		border-bottom: 1px dotted #FF0000; /* If you want dots under the hoverable text */
+	}
+
+	.tooltip_secret .tooltiptext_secret {
+		visibility: hidden;
+		width: 250px;
+		top: -3px;
+		right: 120%;
+		margin-left: -125px; /* Use half of the width (150/2 = 75), to center the tooltip */
+		background-color: #fff;
+		color: #8E6516;
+		padding: 5px;
+		border-radius: 0;
+		border: 1px solid #8E6516;
+
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		z-index: 1;
+
+		/* Fade in Tooltip */
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	/* Show the tooltip text when you mouse over the tooltip container */
+	.tooltip_secret:hover .tooltiptext_secret {
+		visibility: visible;
+		opacity: 1;
+		margin-bottom: 5px;
+		margin-right: 5px;
+	}
+
+	.tooltip_secret .tooltiptext_secret::after {
+		content: " ";
+		position: absolute;
+		top: 10%;
+		left: 100%;
+		margin-top: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent transparent #8E6516;
+	}
+
+	/* AJAX Chat */
+	#content {
+		position: fixed;
+		min-height: 100%;
+		height: auto !important;
+		height: 100%;
+		background: #9E9482;
+		width: 300px;
+		right: 0px;
+		margin-right: -300px;
+		z-index: 9999;
+	}
+	#btn {
+		position: fixed;
+		width: 50px;
+		height: 50px;
+		right: 0px;
+		background: #8E6516;
+		top: 125px;
+		border-radius: 25px 0px 0 25px;
+		color: #fff;
+		text-align: center;
+		padding: 10px 5px 10px 10px;
+		cursor: pointer;
+		z-index: 9999;
+	}
+	.expandedTxt {
+		display: none;
+		z-index: 9999;
+	}
+	#btn.expanded .expandedTxt {
+		display: block;
+		z-index: 9999;
+	}
+	#btn.expanded .click {
+		display: none;
+		z-index: 9999;
+	}
+	#view_ajax {
+		display: block;
+		overflow: auto;
+		width: 250px;
+		height: 300px;
+		border: 1px solid #FFFFFF;
+		margin: 0 auto;
+		margin-top: 20px;
+		z-index: 9999;
+	}
+	#ajaxForm {
+		display: block;
+		margin: 0 auto;
+		width: 250px;
+		height: 50px;
+		margin-top: 10px;
+		z-index: 9999;
+	}
+	#chatInput {
+		width: 250px;
+		z-index: 9999;
+	}
+
+	/* Table Link */
+	.special {
+		width: 385px;
+		margin-left: 5px;
+		margin-right: 5px;
+		border-left: 1px solid #FFFFFF;
+		border-top: 0;
+		border-right: 1px solid #FFFFFF;
+		border-bottom: 0;
+		z-index: 9999;
+	}
+
+    #custom-handle {
+		width: 3em;
+		height: 1.6em;
+		top: 50%;
+		margin-top: -.8em;
+		text-align: center;
+		line-height: 1.6em;
+	}
+
+	/* Checkbox-Slider */
+	/* Hide regular Checkboxes */
+    input[type="checkbox"] {
+    	visibility: hidden;
+    }
+    /* Create Slider for Checkbox */
+    .checkboxOne {
+    	width: 40px;
+    	height: 10px;
+    	background: #9E9482;
+    	margin: 7px 3px;
+    	position: relative;
+    	border-radius: 3px;
+    }
+    /* Create the Slider from the Label */
+    .checkboxOne label {
+    	display: block;
+    	width: 16px;
+    	height: 16px;
+    	border-radius: 50%;
+
+    	transition: all .5s ease;
+    	cursor: pointer;
+    	position: absolute;
+    	top: -3px;
+    	left: -3px;
+
+    	background: #ccc;
+    }
+    /* Move the slider in the correct position if the checkbox is clicked */
+    .checkboxOne input[type="checkbox"]:checked + label {
+    	left: 27px;
+    	background: #8E6516;
+    }
+
+    /* Checkbox */
+    .checkboxFive {
+    	width: 16px;
+    	margin: 7px 3px;
+    	position: relative;
+    }
+
+    /* Create the box for the checkbox */
+    .checkboxFive label {
+    	cursor: pointer;
+    	position: absolute;
+    	width: 16px;
+    	height: 16px;
+    	top: 0;
+      	left: 0;
+    	background: #eee;
+    	border:1px solid #ddd;
+    }
+
+    /* Display the tick inside the checkbox */
+    .checkboxFive label:after {
+    	opacity: 0.2;
+    	content: '';
+    	position: absolute;
+    	width: 9px;
+    	height: 5px;
+    	background: transparent;
+    	top: 4px;
+    	left: 3px;
+    	border: 3px solid #8E6516;
+    	border-top: none;
+    	border-right: none;
+
+    	transform: rotate(-45deg);
+    }
+
+    /* Create the hover event of the tick */
+    .checkboxFive label:hover::after {
+    	opacity: 0.5;
+    }
+
+    /* Create the checkbox state for the tick */
+    .checkboxFive input[type="checkbox"]:checked + label:after {
+    	opacity: 1;
+    }
+
+	.control {
+		font-family: 'Lato', Calibri, Arial, sans-serif;
+		display: block;
+		position: relative;
+		padding-left: 25px;
+		margin-bottom: 0px;
+		padding-top: 0px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+	.control_indicator {
+		position: absolute;
+		top: 3px;
+		left: 0;
+		height: 16px;
+		width: 16px;
+		background: #e6e6e6;
+		border: 0px solid #000000;
+	}
+	.control-radio .control_indicator {
+		border-radius: 50%;
+	}
+
+	.control:hover input ~ .control_indicator,
+	.control input:focus ~ .control_indicator {
+		background: #cccccc;
+	}
+
+	.control input:checked ~ .control_indicator {
+		background: #ffffff;
+	}
+	.control:hover input:not([disabled]):checked ~ .control_indicator,
+	.control input:checked:focus ~ .control_indicator {
+		background: #0e6647d;
+	}
+	.control input:disabled ~ .control_indicator {
+		background: #e6e6e6;
+		opacity: 0.6;
+		pointer-events: none;
+	}
+	.control_indicator:after {
+		box-sizing: unset;
+		content: '';
+		position: absolute;
+		display: none;
+	}
+	.control input:checked ~ .control_indicator:after {
+		display: block;
+	}
+	.control-radio .control_indicator:after {
+		left: 3px;
+		top: 3px;
+		height: 10px;
+		width: 10px;
+		border-radius: 50%;
+		background: #8e6516;
+	}
+	.control-radio input:disabled ~ .control_indicator:after {
+		background: #7b7b7b;
+	}
+
+    /* Zwischenzeit Class */
+    .zz {
+        display: none;
+    }
+
+	/* Modal Fix */
+	.modal_fix {
+		display: none;
+	}
+
+	/* Input File */
+	.inputfile {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+	}
+
+	.inputfile + label {
+		text-align: left;
+		padding: 2px 5px;
+		width: 135px;
+		color: #8E6516;
+		background: transparent;
+		background-color: #FFFFFF;
+		display: inline-block;
+	}
+
+	#tbl_result {
+		border-spacing: 5px 0 5px 0;
+		border-collapse: collapse;
+		padding: 5px;
+	}
+
+	input[type=checkbox].custom_checkbox {
+		position: absolute;
+		z-index: -1000;
+		left: -1000px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		width: 1px;
+		margin: -1px;
+		padding: 0;
+		border: 0;
+	}
+
+	input[type=checkbox].custom_checkbox + label.custom_label, input[type=checkbox].custom_checkbox + label.custom_label.clr {
+		padding-left: 55px;
+		height: 43px;
+		display: inline-block;
+		line-height: 43px;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		font-size: 43px;
+		vertical-align: middle;
+		cursor: pointer;
+	}
+
+	input[type=checkbox].custom_checkbox:checked + label.custom_label,
+	input[type=checkbox].custom_checkbox + label.custom_label.chk {
+		background-position: 0 -43px;
+	}
+
+	label.custom_label {
+		background-image: url(../images/customkit.png);
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}

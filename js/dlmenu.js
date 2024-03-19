@@ -1,0 +1,3 @@
+$(function() {
+	$( '#dl-menu' ).dlmenu();
+});

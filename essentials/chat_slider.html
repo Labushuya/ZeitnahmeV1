@@ -1,0 +1,29 @@
+<html>
+	<head>
+	<script>			
+			$(document).ready(function(){
+				$('#ajaxForm').keypress(function(e){
+					if(e.keyCode==13)
+					$('#btnSend').click();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="modal_fix willSlide" id="content">
+			<div style="padding: 100px 25px 25px 25px;"><hr class="white-hr"></div>
+			<div style="padding: 0 25px 25px 25px;">TimeKeeper Chat</div>
+			<div style="padding: 0 25px 25px 25px;">
+				<div id="view_ajax" style="background: transparent; background-color: #FFFFFF; color: #8E6516;"></div>
+				<div id="ajaxForm">
+					<input type="text" id="chatInput" style="background: transparent; background-color: #FFFFFF; color: #8E6516; min-height: 100%; height: auto !important; height: 100%; width: 100%;">
+					<input type="button" id="btnSend" value="senden" style="background: transparent; background-color: #FFFFFF; color: #8E6516; width: 100%;">
+				</div>
+			</div>
+		</div>
+		<div class="willSlide" id="btn">
+			<span class="click"><img src="images/messenger_ring.gif" /></span>
+			<span class="expandedTxt" style="padding-top: 5px;"><img src="images/messenger_radio.gif" /></span>
+		</div>
+	</body>
+</html>
